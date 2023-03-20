@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import 'antd/dist/reset.css'
+import './App.css'
+import {Layout} from "antd";
+
+import MyHeader from "./components/MyHeader";
+import MySider from "./components/MySider";
+import MyContent from "./components/MyContent";
+
+const { Header, Content, Sider, Footer } = Layout;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Layout>
+            <Header style={{ background: '#fff', padding: 0, display:'flex',justifyContent:'center' }}>
+                <MyHeader/>
+            </Header>
+            <Layout style={{height: 'calc(100vh - 130px)'}}>
+                <Sider width={200} >
+                    <MySider/>
+                </Sider>
+                <Layout style={{padding: '0 24px 24px',}}>
+                    <Content>
+                        <MyContent/>
+                    </Content>
+                </Layout>
+            </Layout>
+            <Footer style={{ textAlign: 'center'}}>
+                Ant Design ©2023 Created by HZL
+            </Footer>
+        </Layout>
+
+    )
 }
 
-export default App;
+export default App
