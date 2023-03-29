@@ -14,10 +14,10 @@ function getItem(label, key, icon, children, type) {
     }
 }
 const items = [
-    getItem('About', 'sub1', <MailOutlined />, [
+    getItem('MySet', 'sub1', <SettingOutlined/>, [
         getItem('About', '1'),
         getItem('Home', '2'),
-        getItem('Option 3', '3'),
+        getItem('MyItem', '3'),
         getItem('Option 4', '4'),
     ]),
     getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
@@ -25,7 +25,7 @@ const items = [
         getItem('Option 6', '6'),
         getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
     ]),
-    getItem('Navigation Three', 'sub4', <SettingOutlined />, [
+    getItem('Navigation Three', 'sub4', <MailOutlined/>, [
         getItem('Option 9', '9'),
         getItem('Option 10', '10'),
         getItem('Option 11', '11'),
@@ -56,6 +56,11 @@ function MySider() {
         }
         if(key.key === '2'){
             navigate('home',{
+                replace:false,
+            })
+        }
+        if(key.key === '3'){
+            navigate('myitem',{
                 replace:false,
             })
         }

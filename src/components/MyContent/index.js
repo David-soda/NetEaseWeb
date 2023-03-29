@@ -3,20 +3,23 @@ import {Breadcrumb} from "antd"
 import {Layout} from "antd"
 import {useSelector,useDispatch} from 'react-redux'
 
-import {useRoutes} from "react-router-dom"
-import routes from "../../routes"
+import {Outlet, useOutlet} from "react-router-dom"
+
 import {setbread} from "../../redux/actions/bread";
 
 
 const {Content} = Layout
 function MyContent() {
-    const element = useRoutes(routes)
-    const [breadCrumbName, setbreadCrumbName] = useState(element.props.match.route.breadcrumb)
+    // const element = useRoutes(routes)
+    const outlet = useOutlet()
+    // console.log(outlet.props.children.props.match.route.breadcrumb)
+    const bc = outlet.props.children.props.match.route.breadcrumb
+    const [breadCrumbName, setbreadCrumbName] = useState(bc)
     const dispatch = useDispatch()
     const bread=useSelector((state) => state).bread
     // console.log('bread',bread)
     useEffect(()=>{
-        setbreadCrumbName(element.props.match.route.breadcrumb)
+        setbreadCrumbName(bc)
         dispatch(setbread(breadCrumbName))
         // console.log(element.props.match.route.breadcrumb)
         // console.log(breadCrumbName)
@@ -48,7 +51,7 @@ function MyContent() {
                     background: "white",
                 }}
             >
-                {element}
+                <Outlet/>
             </Content>
         </div>
     );

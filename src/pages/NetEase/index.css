@@ -1,0 +1,47 @@
+/*.bannerBkg:hover{*/
+/*    background-color: cornsilk;*/
+/*    transition: 0.4s linear all ;*/
+/*}*/
+
+.leftRow:hover{
+    background-color: #ff8d73;
+}
+
+.coverOuter{
+    width: 205px;
+    height: 205px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.playlistsCover{
+    width: 205px;
+    transition: 0.2s linear;
+}
+.playicon{
+    width: 205px ;
+    line-height: 205px;
+    position: absolute;
+    text-align: center;
+    font-size: 50px;
+    color: #ddd;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+.coverOuter:hover .playlistsCover{
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+.coverOuter:hover .playicon{
+    opacity: 1;
+}
+a{
+    font-size: 12px;
+    color: #282c34;
+}
+a:hover{
+    color: skyblue;
+}
