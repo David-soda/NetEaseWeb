@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import {getBanners, getRecPlaylist, getToplist} from '../../service/homepage'
-import {Button, Carousel, Layout, message, Typography} from "antd"
+import {Button, Carousel, Input, Layout, message, Popover, Typography} from "antd"
 import { LeftOutlined, RightOutlined, PlayCircleFilled} from '@ant-design/icons'
 import './index.css'
-import {Outlet, useNavigate} from "react-router-dom";
+import {NavLink, Outlet, useNavigate} from "react-router-dom";
+import MySearch from "../../components/MySearch";
 
 const {Content} = Layout
 const {Title,Text,Link} = Typography
+const { Search } = Input;
 function NetEase() {
     const [banners,setBanners] = useState([])
     const [recCat,setRecCat] = useState(['华语','古风','欧美','流行']) //推荐种类
@@ -64,22 +66,23 @@ function NetEase() {
     }
     //跳转歌单页面
     const navigate = useNavigate()
-    const toPlatlist =(e,item)=>{
+    const toPlaylist =(e,item)=>{
         console.log(item)
         navigate('playlist',{
             replace:false,
-            // state:{
-            //     id:m.id,
-            //     title:m.title,
-            //     content:m.content
-            // }
+            state:{
+                item
+                // title:m.title,
+                // content:m.content
+            }
         })
     }
     return (
         <Content>
             <div>
+                <Outlet/>
                 <div style={{backgroundColor:'#ddd'}}>
-                    <div style={{margin:'0 auto',width:'1080px',backgroundColor:"red"}}>
+                    <div style={{margin:'0 auto',width:'1080px',backgroundColor:"#ddd"}}>
                         <Carousel autoplay afterChange={onChange}>
                             {
                                 banners.map(
@@ -127,13 +130,14 @@ function NetEase() {
                             playlists.slice(curIndex,curIndex+5).map(
                                 (item,id)=>{
                                     return(
-                                        <div key={id} onClick={e=>toPlatlist(e,item)}>
+                                        <div key={id} onClick={e=>toPlaylist(e,item)}>
                                             <div className={'coverOuter'}>
                                                 <img className={'playlistsCover'} src={item.coverImgUrl}/>
                                                 <PlayCircleFilled className={'playicon'}/>
                                             </div>
                                             <div style={{width:'205px',marginTop:'10px'}}>
-                                                <a href='ww'>{item.name}</a>
+                                                <NavLink to="playlist">{item.name}</NavLink>
+                                                {/*<a href='ww'>{item.name}</a>*/}
                                             </div>
                                         </div>
                                     )
@@ -145,6 +149,7 @@ function NetEase() {
                         <RightOutlined style={{fontSize:'30px'}} onClick={toRight} hidden={leftright[1]}/>
                     </div>
                 </div>
+                <MySearch/>
                 <div style={{ margin:'20px auto 0', width:'1200px'}}>
                     <Title style={{color:'#263063',textAlign:'center'}}>
                         排 行 榜

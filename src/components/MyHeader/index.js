@@ -30,7 +30,8 @@ function MyHeader() {
 
     useEffect(()=>{
         let cur = pathname.slice(1)
-        setCurrent(cur)
+        // console.log(cur.split("/"))
+        setCurrent(cur.split("/")[0])
     },[])
 
     const showModal = () => {

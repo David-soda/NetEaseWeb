@@ -6,6 +6,7 @@ import Setting from "../pages/Setting";
 import MyItem from "../pages/MyItem";
 import NetEase from "../pages/NetEase";
 import Playlist from "../pages/Playlist";
+import ArtistsDetail from "../pages/ArtistsDetail";
 
 export default [
     {
@@ -16,14 +17,17 @@ export default [
     {
         path:'/netease',
         element:<NetEase/>,
-        breadcrumb: ['网易云'],
-        children:[
-            {
-                path:'playlist',
-                element:<Playlist/>,
-                breadcrumb: ['网易云','歌单']
-            }
-        ]
+        breadcrumb: ['网易云']
+    },
+    {
+        path:'/netease/playlist',
+        element:<Playlist/>,
+        breadcrumb: ['网易云','歌单']
+    },
+    {
+        path:'/netease/artistdetail',
+        element:<ArtistsDetail/>,
+        breadcrumb: ['网易云','艺人详情']
     },
     {
         path:'/setting',

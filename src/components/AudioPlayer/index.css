@@ -1,0 +1,100 @@
+/*:root {*/
+/*    --white: #fff;*/
+/*    --active-color: #00aeb0;*/
+/*}*/
+/*html {*/
+/*    font-family: Arial, Helvetica, sans-serif;*/
+/*    height: 100%;*/
+/*    background: var(--active-color);*/
+/*    transition: background 0.4s ease;*/
+/*}*/
+
+.bottomDisplay{
+    width: 100vw;
+    height: 100px;
+    position: sticky;
+    bottom: 0;
+    padding: 0 20px;
+    /*background: rgb(2, 2, 2, 0.7);*/
+    background: linear-gradient(45deg, #00aeb0 20%, transparent 100%)
+    no-repeat;
+    animation: colorChange 20s alternate infinite;
+}
+@keyframes colorChange {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+.playContent{
+    padding: 10px 20px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+}
+.playInfo{
+    height: 80px;
+    width: 28%;
+    margin-left: 20px;
+    color: white;
+    overflow: hidden; /* 隐藏超出容器的内容 */
+    position: relative; /* 设置相对定位，以便在容器中创建滚动动画 */
+
+}
+
+.playInfo .scrolling-title{
+    height: 46px;
+    font-size: 36px;
+    font-weight: 600;
+    /*overflow: hidden; !* 隐藏超出容器的内容 *!*/
+    white-space: nowrap;
+    position: absolute; /* 将段落设置为绝对定位，以便可以在容器中滚动 */
+    margin: 0; /* 去除段落边距 */
+    padding: 0; /* 去除段落填充 */
+    /*animation: scroll 20s linear infinite; !* 使用CSS动画创建滚动效果 *!*/
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.playInfo .singername{
+    margin-top: 46px;
+    height: 34px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.playCenter{
+    height: 80px;
+    width: 600px;
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+input[type="range"] {
+    height: 5px;
+    -webkit-appearance: none;
+    width: 100%;
+    /*border-radius: 8px;*/
+    background: #3b7677;
+    transition: background 0.2s ease;
+    cursor: pointer;
+}
+
+
+

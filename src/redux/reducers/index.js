@@ -4,10 +4,12 @@ import {combineReducers} from 'redux'
 import count from './count'
 import bread from "./bread";
 import loginState from  '../../components/SysLogin/store/reducer'
+import playList from  '../../components/AudioPlayer/store/reducer'
 
 //汇总所有的reducer变为一个总的reducer
 export default combineReducers({
     count,
     bread,
-    loginState
+    loginState,
+    playList
 })

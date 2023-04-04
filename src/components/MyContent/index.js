@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Breadcrumb} from "antd"
-import {Layout} from "antd"
+import {Breadcrumb, Layout} from "antd"
 import {useSelector,useDispatch} from 'react-redux'
 
 import {Outlet, useOutlet} from "react-router-dom"
@@ -17,7 +16,7 @@ function MyContent() {
     const [breadCrumbName, setbreadCrumbName] = useState(bc)
     const dispatch = useDispatch()
     const bread=useSelector((state) => state).bread
-    // console.log('bread',bread)
+
     useEffect(()=>{
         setbreadCrumbName(bc)
         dispatch(setbread(breadCrumbName))
