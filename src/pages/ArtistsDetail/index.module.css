@@ -1,5 +1,6 @@
 .maincontent{
     width: 1200px;
+    margin: 0 auto;
 }
 .artistHeader{
     display: flex;
@@ -40,4 +41,30 @@
     font-weight: 400;
     font-size: 30px;
     margin-left: 10px;
+}
+.simiartists{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.simiitem{
+    width: 220px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fbfbfd;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+.simiitem:hover{
+    cursor: pointer;
+}
+.simiitem img{
+    width: 180px;
+    border-radius: 180px;
+}
+.simiitem  a{
+    margin-top: 20px;
 }
